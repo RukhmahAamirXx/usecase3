@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: streamsets_raw  # This is the name you use in {{ source('streamsets_raw', '...') }}
+    database: ANALYTICS_DB # Your Snowflake Database
+    schema: RAW            # The schema where StreamSets dumps data
+    description: "Raw data ingested from local PostgreSQL via StreamSets."
+    
+    tables:
+      - name: users
+        description: "Raw users table containing user_id, name, and email."
+        columns:
+          - name: user_id
+            tests:
+              - unique
+              - not_null
+
+      - name: orders
+        description: "Raw orders table containing order_id, user_id, and total_order_amount."
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            tests:
+              - not_null

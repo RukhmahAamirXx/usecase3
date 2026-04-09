@@ -1,0 +1,29 @@
+name: 'akrion_ecommerce'
+version: '1.0.0'
+config-version: 2
+
+# This must match the top line of your ~/.dbt/profiles.yml
+profile: 'akrion_ecommerce'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# SEED CONFIGURATION
+seeds:
+  +quote_columns: false
+    # This puts your user_demographics.csv into ANALYTICS_DB.RAW
+
+
+# MODEL CONFIGURATION
+models:
+  akrion_ecommerce:
+    # This ensures your models in the use_case_2 folder become real tables in Snowflake
+    use_case_2:
+      +materialized: table
