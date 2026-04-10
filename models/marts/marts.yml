@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_customer_loyalty
+    description: "Final table for customer segmentation. Used by Marketing to identify high-value customers."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: loyalty_tier
+        description: "Classification based on CLV: Gold (>2000), Silver (>500), Bronze (all others)."
+
+  - name: fct_product_performance
+    description: "Combines sales volume with JSON-derived review ratings."

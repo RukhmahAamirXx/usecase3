@@ -25,3 +25,14 @@ sources:
           - name: user_id
             tests:
               - not_null
+  - name: ecommerce_raw
+    database: ANALYTICS_DB
+    schema: RAW
+    description: "E-commerce data from MySQL and JSON files (Use Case 3)."
+    tables:
+      - name: customers_raw
+      - name: products_raw
+      - name: orders_raw
+      - name: order_items_raw
+      - name: raw_reviews
+        description: "Semi-structured JSON review data."

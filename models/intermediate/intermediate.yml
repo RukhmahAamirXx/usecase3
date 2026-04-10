@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: int_sales_details
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments: # <--- This is the missing piece for the new version
+            expression: "is_amount_anomaly = FALSE"
+          config:
+            severity: warn
