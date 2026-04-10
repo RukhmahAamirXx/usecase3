@@ -1,5 +1,7 @@
 E-Commerce Analytics (Use Case 3)
-Project Overview
+Project Overview:
+
+
 This project demonstrates an end-to-end ELT pipeline using MySQL, StreamSets, Snowflake, and dbt. The goal was to transform raw relational and semi-structured e-commerce data into actionable business insights, focusing on customer loyalty, product performance, and sales trends.
 
 Architecture
